@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">track_spend</string>
+    <string name="category_image">Category Image</string>
+    <string name="expenditure_name">Expenditure Name</string>
+    <string name="category">Category</string>
+    <string name="amount">Amount</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_expenses">Expenses</string>
+    <string name="add_expense">Add Expense</string>
+<!--    <string name="expense_name">Expense Name</string>-->
+<!--    <string name="expense_amount">Expense Amount</string>-->
+<!--    <string name="expense_description">Expense Description</string>-->
+<!--    <string name="expense_category">Expense Category</string>-->
+    <string name="save">Save</string>
+    <string name="expense_name">Expense Name</string>
+    <string name="expense_category">Expense Category</string>
+    <string name="expense_description">Expense Description</string>
+    <string name="expense_amount">Expense Amount</string>
+    <string name="edit_expense">Edit Expense</string>
+    <string name="back">Back</string>
+    <string name="date_created">Date Created</string>
+    <string name="total_amount">Total Amount</string>
+</resources>
