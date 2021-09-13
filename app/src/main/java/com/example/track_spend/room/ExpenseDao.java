@@ -25,4 +25,20 @@ public interface ExpenseDao {
     @Query("SELECT SUM(amount) as total FROM expense_table")
     LiveData<TotalsPojo> getTotal();
 
+    @Query("SELECT SUM(amount) as total FROM expense_table WHERE category = 'Transport'")
+    LiveData<TotalsPojo> getTotalTransport();
+
+    @Query("SELECT SUM(amount) as total FROM expense_table WHERE category = 'Automotive'")
+    LiveData<TotalsPojo> getTotalAutomotive();
+
+    @Query("SELECT SUM(amount) as total FROM expense_table WHERE category = 'Foodstuff'")
+    LiveData<TotalsPojo> getTotalFoods();
+
+    @Query("SELECT SUM(amount) as total FROM expense_table WHERE category = 'Wearable'")
+    LiveData<TotalsPojo> getTotalWearable();
+
+    @Query("SELECT SUM(amount) as total FROM expense_table WHERE category = 'Utilities'")
+    LiveData<TotalsPojo> getTotalUtilities();
+
+
 }

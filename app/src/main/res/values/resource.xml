@@ -3,9 +3,9 @@
     <string-array name="categories">
         <item>Select Category</item>
         <item>Automotive</item>
-        <item>Food And Refreshments</item>
+        <item>Foodstuff</item>
         <item>Wearable</item>
-        <item>Utility Bills</item>
+        <item>Utilities</item>
         <item>Transport</item>
     </string-array>
 </resources>

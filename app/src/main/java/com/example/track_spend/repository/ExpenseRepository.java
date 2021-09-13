@@ -18,12 +18,23 @@ public class ExpenseRepository {
     private ExpenseDao expenseDao;
     private LiveData<List<Expense>> allExpenses;
     private LiveData<TotalsPojo> totalsPojo;
+    private LiveData<TotalsPojo> totalTransport;
+    private LiveData<TotalsPojo> totalAutomotive;
+    private LiveData<TotalsPojo> totalFood;
+    private LiveData<TotalsPojo> totalWearable;
+    private LiveData<TotalsPojo> totalUtilities;
+
 
     public ExpenseRepository(Application application){
         ExpenseDb expenseDb = ExpenseDb.getInstance(application);
         expenseDao = expenseDb.expenseDao();
         allExpenses = expenseDao.getAllExpenses();
         totalsPojo = expenseDao.getTotal();
+        totalTransport = expenseDao.getTotalTransport();
+        totalAutomotive = expenseDao.getTotalAutomotive();
+        totalFood = expenseDao.getTotalFoods();
+        totalWearable = expenseDao.getTotalWearable();
+        totalUtilities = expenseDao.getTotalUtilities();
     }
 
     public void insert(Expense expense){
@@ -39,6 +50,26 @@ public class ExpenseRepository {
 
     public LiveData<TotalsPojo> getTotal(){
         return totalsPojo;
+    }
+
+    public LiveData<TotalsPojo> getTotalTransport(){
+        return totalTransport;
+    }
+
+    public LiveData<TotalsPojo> getTotalAutomotive(){
+        return totalAutomotive;
+    }
+
+    public LiveData<TotalsPojo> getTotalFoods(){
+        return totalFood;
+    }
+
+    public LiveData<TotalsPojo> getTotalWearable(){
+        return totalWearable;
+    }
+
+    public LiveData<TotalsPojo> getTotalUtilities(){
+        return totalUtilities;
     }
 
     private static class InsertExpenditureAsyncTask extends AsyncTask<Expense, Void, Void> {

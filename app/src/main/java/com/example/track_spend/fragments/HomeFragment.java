@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +25,12 @@ import com.example.track_spend.adapters.ExpenseAdapter;
 import com.example.track_spend.pojo.TotalsPojo;
 import com.example.track_spend.room.Expense;
 import com.example.track_spend.viewmodel.ExpenseViewModel;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +43,13 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.home_fragment, container, false);
+
+        List<String> categoryList = new ArrayList<>();
+        categoryList.add("Transport");
+        categoryList.add("Automotive");
+        categoryList.add("Foodstuff");
+        categoryList.add("Wearable");
+        categoryList.add("Utilities");
 
         RecyclerView recyclerView = v.findViewById(R.id.expenses_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -60,6 +73,41 @@ public class HomeFragment extends Fragment {
             public void onChanged(TotalsPojo totalsPojo) {
                 adapter.setTotalsPojo(totalsPojo);
                 textView.setText(String.valueOf(totalsPojo.total));
+            }
+        });
+
+        expenseViewModel.getTotalTransport().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
+            @Override
+            public void onChanged(TotalsPojo totalsPojo) {
+                adapter.setTotalsPojo(totalsPojo);
+            }
+        });
+
+        expenseViewModel.getTotalAutomotive().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
+            @Override
+            public void onChanged(TotalsPojo totalsPojo) {
+                adapter.setTotalsPojo(totalsPojo);
+            }
+        });
+
+        expenseViewModel.getTotalFoods().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
+            @Override
+            public void onChanged(TotalsPojo totalsPojo) {
+                adapter.setTotalsPojo(totalsPojo);
+            }
+        });
+
+        expenseViewModel.getTotalWearable().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
+            @Override
+            public void onChanged(TotalsPojo totalsPojo) {
+                adapter.setTotalsPojo(totalsPojo);
+            }
+        });
+
+        expenseViewModel.getTotalUtilities().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
+            @Override
+            public void onChanged(TotalsPojo totalsPojo) {
+                adapter.setTotalsPojo(totalsPojo);
             }
         });
 

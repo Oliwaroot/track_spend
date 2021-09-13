@@ -43,11 +43,11 @@ public abstract class ExpenseDb extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            expenseDao.insert(new Expense("Water","Food and Refreshments","Bottle of water", 100, "2021-10-8"));
-            expenseDao.insert(new Expense("Juice","Food and Refreshments","5 litres of juice", 1000, "2021-10-9"));
+            expenseDao.insert(new Expense("Water","Foodstuff","Bottle of water", 100, "2021-10-8"));
+            expenseDao.insert(new Expense("Juice","Foodstuff","5 litres of juice", 1000, "2021-10-9"));
             expenseDao.insert(new Expense("Leather Jacket","Wearable","Black leather jacket", 5000, "2021-10-10"));
             expenseDao.insert(new Expense("Fuel","Automotive","Fuel for vehicle", 4000, "2021-10-11"));
-            expenseDao.insert(new Expense("Electricity Bill","Utility Bill","Electricity bill payment", 2000,"2021-10-12"));
+            expenseDao.insert(new Expense("Electricity Bill","Utilities","Electricity bill payment", 2000,"2021-10-12"));
             return null;
         }
     }

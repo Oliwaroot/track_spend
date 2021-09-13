@@ -19,5 +19,5 @@
     <string name="edit_expense">Edit Expense</string>
     <string name="back">Back</string>
     <string name="date_created">Date Created</string>
-    <string name="total_amount">Total Amount</string>
+    <string name="total_amount">Total Amount: </string>
 </resources>
