@@ -80,6 +80,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(expandableLayout.isExpanded()){
+                    expandableLayout.collapse();
+                }
+            }
+        });
+
         ExpenseAdapter adapter = new ExpenseAdapter();
         recyclerView.setAdapter(adapter);
 
@@ -222,11 +231,11 @@ public class HomeFragment extends Fragment {
                 editButton = dialogView.findViewById(R.id.edit_expense_button);
                 backButton = dialogView.findViewById(R.id.back_button);
 
-                textView.setText(expense.getName());
-                textView2.setText(expense.getCategory());
-                textView3.setText(expense.getDescription());
+                textView.setText(" "+expense.getName());
+                textView2.setText(" "+expense.getCategory());
+                textView3.setText(" "+expense.getDescription());
                 textView4.setText(String.valueOf(expense.getAmount()));
-                textView5.setText(expense.getCurrentDate());
+                textView5.setText(" "+expense.getCurrentDate());
 
 
                 AlertDialog alertDialog = dialogBuilder.create();

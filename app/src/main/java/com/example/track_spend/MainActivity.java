@@ -1,5 +1,7 @@
 package com.example.track_spend;
 
+import static com.example.track_spend.fragments.HomeFragment.expandableLayout;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(expandableLayout.isExpanded()){
+                    expandableLayout.collapse();
+                }
                 Intent intent = new Intent(MainActivity.this, AddOrEditExpense.class);
                 startActivityForResult(intent, ADD_EXPENSE_REQUEST);
             }
