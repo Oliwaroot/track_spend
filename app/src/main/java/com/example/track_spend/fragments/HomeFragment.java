@@ -1,11 +1,14 @@
 package com.example.track_spend.fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,10 +28,14 @@ import com.example.track_spend.adapters.ExpenseAdapter;
 import com.example.track_spend.pojo.TotalsPojo;
 import com.example.track_spend.room.Expense;
 import com.example.track_spend.viewmodel.ExpenseViewModel;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,27 +45,63 @@ public class HomeFragment extends Fragment {
     View v;
     private ExpenseViewModel expenseViewModel;
     public static final int EDIT_EXPENSE_REQUEST = 2;
+    public static ExpandableLayout expandableLayout;
+    public static int counter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.home_fragment, container, false);
 
-        List<String> categoryList = new ArrayList<>();
-        categoryList.add("Transport");
-        categoryList.add("Automotive");
-        categoryList.add("Foodstuff");
-        categoryList.add("Wearable");
-        categoryList.add("Utilities");
+        counter = 0;
 
         RecyclerView recyclerView = v.findViewById(R.id.expenses_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
+        Animation animation;
+        animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+
         TextView textView = v.findViewById(R.id.totals);
+        Button button = v.findViewById(R.id.expand_or_collapse);
+        Button button2 = v.findViewById(R.id.collapse);
+        expandableLayout = v.findViewById(R.id.expandable_layout);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                expandableLayout.expand();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                expandableLayout.collapse();
+            }
+        });
 
         ExpenseAdapter adapter = new ExpenseAdapter();
         recyclerView.setAdapter(adapter);
+
+        PieChart pieChart = v.findViewById(R.id.pie_chart);
+        ArrayList<PieEntry> entries  = new ArrayList<>();
+
+        PieDataSet pieDataSet = new PieDataSet(entries, "");
+        pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+        //pieDataSet.setValueTextColor(Color.BLACK);
+        pieDataSet.setValueTextSize(16f);
+        Legend legend = pieChart.getLegend();
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setTextColor(Color.WHITE);
+        legend.setTextSize(12);
+        PieData pieData = new PieData(pieDataSet);
+
+        pieChart.setData(pieData);
+        pieChart.getDescription().setEnabled(false);
+        //pieChart.setCenterText("Example");
+        pieChart.setDrawEntryLabels(false);
+        pieChart.animateY(1000);
+//        pieChart.animate();
 
         expenseViewModel = new ViewModelProvider(this).get(ExpenseViewModel.class);
         expenseViewModel.getAllExpenses().observe(getViewLifecycleOwner(), new Observer<List<Expense>>() {
@@ -72,42 +115,88 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
                 adapter.setTotalsPojo(totalsPojo);
-                textView.setText(String.valueOf(totalsPojo.total));
+                textView.setText(String.valueOf("Ksh: "+totalsPojo.total));
+                textView.startAnimation(animation);
             }
         });
 
         expenseViewModel.getTotalTransport().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
+                if(counter >= 5){
+                    pieDataSet.removeFirst();
+                }
+                counter++;
                 adapter.setTotalsPojo(totalsPojo);
+                PieEntry pieEntry = new PieEntry(totalsPojo.total, "Transport");
+                pieDataSet.addEntry(pieEntry);
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+                pieChart.animateY(1000);
             }
         });
 
         expenseViewModel.getTotalAutomotive().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
+                if(counter >= 5){
+                    pieDataSet.removeFirst();
+                }
+                counter++;
                 adapter.setTotalsPojo(totalsPojo);
+                PieEntry pieEntry = new PieEntry(totalsPojo.total, "Automotive");
+                pieDataSet.addEntry(pieEntry);
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+                pieChart.animateY(1000);
             }
         });
 
         expenseViewModel.getTotalFoods().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
+                if(counter >= 5){
+                    pieDataSet.removeFirst();
+                }
+                counter++;
                 adapter.setTotalsPojo(totalsPojo);
+                PieEntry pieEntry = new PieEntry(totalsPojo.total, "Foodstuff");
+                pieDataSet.addEntry(pieEntry);
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+                pieChart.animateY(1000);
             }
         });
 
         expenseViewModel.getTotalWearable().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
+                if(counter >= 5){
+                    pieDataSet.removeFirst();
+                }
+                counter++;
                 adapter.setTotalsPojo(totalsPojo);
+                PieEntry pieEntry = new PieEntry(totalsPojo.total, "Wearable");
+                pieDataSet.addEntry(pieEntry);
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+                pieChart.animateY(1000);
             }
         });
 
         expenseViewModel.getTotalUtilities().observe(getViewLifecycleOwner(), new Observer<TotalsPojo>() {
             @Override
             public void onChanged(TotalsPojo totalsPojo) {
+                if(counter >= 5){
+                    pieDataSet.removeFirst();
+                }
+                counter++;
                 adapter.setTotalsPojo(totalsPojo);
+                PieEntry pieEntry = new PieEntry(totalsPojo.total, "Utilities" );
+                pieDataSet.addEntry(pieEntry);
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+                pieChart.animateY(1000);
             }
         });
 

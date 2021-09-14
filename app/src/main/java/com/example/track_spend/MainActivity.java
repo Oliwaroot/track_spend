@@ -2,7 +2,7 @@ package com.example.track_spend;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -13,15 +13,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.track_spend.adapters.ExpenseAdapter;
-import com.example.track_spend.fragments.ExpensesFragment;
 import com.example.track_spend.fragments.HomeFragment;
 import com.example.track_spend.room.Expense;
 import com.example.track_spend.viewmodel.ExpenseViewModel;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_EXPENSE_REQUEST = 1;
@@ -33,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         FloatingActionButton floatingActionButton = findViewById(R.id.floating_add_expense);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setExpense(expense);
             }
         });
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
@@ -106,23 +103,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Expense not added", Toast.LENGTH_SHORT).show();
         }
     }
-
-    private final NavigationBarView.OnItemSelectedListener navListener =
-            item -> {
-                Fragment selectedFragment = null;
-
-                switch (item.getItemId()){
-                    case R.id.nav_home:
-                        selectedFragment = new HomeFragment();
-                        break;
-
-                    case R.id.nav_expenditures:
-                        selectedFragment = new ExpensesFragment();
-                        break;
-                }
-                assert selectedFragment != null;
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        selectedFragment).commit();
-                return true;
-            };
 }

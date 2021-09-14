@@ -36,8 +36,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseH
     public void onBindViewHolder(@NonNull ExpenseHolder holder, int position) {
         Expense currentExpense = expense.get(position);
         holder.tvName.setText(currentExpense.getName());
-        holder.tvCategory.setText(currentExpense.getCategory());
-        holder.tvAmount.setText(String.valueOf(currentExpense.getAmount()));
+        holder.tvAmount.setText(String.valueOf("Ksh: "+currentExpense.getAmount()));
     }
 
     @Override
@@ -56,13 +55,11 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseH
 
     class ExpenseHolder extends RecyclerView.ViewHolder {
         private TextView tvName;
-        private TextView tvCategory;
         private TextView tvAmount;
 
         public ExpenseHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.name);
-            tvCategory = itemView.findViewById(R.id.category);
             tvAmount = itemView.findViewById(R.id.amount);
 
             itemView.setOnClickListener(new View.OnClickListener() {

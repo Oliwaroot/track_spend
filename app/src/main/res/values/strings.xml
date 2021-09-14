@@ -20,4 +20,11 @@
     <string name="back">Back</string>
     <string name="date_created">Date Created</string>
     <string name="total_amount">Total Amount: </string>
+    <string name="expand">Show Expenses</string>
+    <string name="return_home">Return Home</string>
+    <string name="expense_title">Title: </string>
+    <string name="category2">Category: </string>
+    <string name="expense_description2">Description: </string>
+    <string name="amount2">Amount: Ksh. </string>
+    <string name="date_created2">Date Created: </string>
 </resources>
