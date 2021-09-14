@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">8dp</dimen>
+
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_regular">14sp</dimen>
+    <dimen name="font_medium">15sp</dimen>
+    <dimen name="font_large">16sp</dimen>
+    <dimen name="font_xlarge">20sp</dimen>
+    <dimen name="font_xxlarge">24sp</dimen>
+
+    <dimen name="table_width_small">112dp</dimen>
+    <dimen name="table_width_medium">128dp</dimen>
+    <dimen name="table_width_large">152dp</dimen>
+    <dimen name="table_height">40dp</dimen>
+</resources>
