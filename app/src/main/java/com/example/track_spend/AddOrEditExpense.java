@@ -1,5 +1,7 @@
 package com.example.track_spend;
 
+import static com.example.track_spend.fragments.HomeFragment.expandableLayout;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -119,6 +121,7 @@ public class AddOrEditExpense extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.save_expense) {
             saveExpense();
+            expandableLayout.collapse();
             return true;
         }
         return super.onOptionsItemSelected(item);

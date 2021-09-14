@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Track_spend">
         <activity
+            android:screenOrientation="portrait"
             android:name=".AddOrEditExpense"
             android:parentActivityName=".MainActivity"
             android:exported="true" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:exported="true">

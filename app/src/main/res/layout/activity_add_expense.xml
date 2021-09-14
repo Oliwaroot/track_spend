@@ -12,31 +12,62 @@
     <EditText
         android:id="@+id/add_expense_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:hint="@string/expense_name"
+        android:paddingStart="5dp"
+        android:background="@drawable/rounded_rectangle"
         android:inputType="text"
+        android:layout_margin="20dp"
         android:autofillHints="Expense Name"/>
 
-    <Spinner
-        android:id="@+id/add_expense_category"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/expense_category"
-        android:entries="@array/categories"
-        android:autofillHints="Expense Name"/>
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/add_expense_category"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:hint="@string/expense_category"
+            android:background="@drawable/rounded_rectangle"
+            android:entries="@array/categories"
+            android:autofillHints="Expense Name"/>
+
+        <ImageView
+            android:layout_width="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_angle_down_solid"
+            app:tint="@color/colorGreyish" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:id="@+id/add_expense_description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_height="35dp"
+        android:paddingStart="5dp"
+        android:background="@drawable/rounded_rectangle"
         android:hint="@string/expense_description"
         android:inputType="text"
         android:autofillHints="Expense Name"/>
 
     <EditText
+        android:layout_margin="20dp"
         android:id="@+id/add_expense_amount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:background="@drawable/rounded_rectangle"
+        android:layout_height="35dp"
         android:hint="@string/expense_amount"
         android:inputType="number"
         android:autofillHints="Expense Name"/>

@@ -7,4 +7,86 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorAccent">#43ab49</color>
+
+    <color name="zeraki_logo_green">#43ab49</color>
+    <color name="zeraki_logo_green_alpha">#3343ab49</color>
+    <color name="zeraki_logo_blue">#4682bf</color>
+
+    <color name="colorBg">#e6e6e6</color>
+    <color name="colorBg_20_opacity">#33e6e6e6</color>
+
+    <color name="white_20_opacity">#33ffffff</color>
+    <color name="white_40_opacity">#66ffffff</color>
+    <color name="white_60_opacity">#99ffffff</color>
+    <color name="white_80_opacity">#CCffffff</color>
+
+    <color name="colorBottomNavIconInactive">#060709</color>
+    <color name="colorAuthEdittextColor">#858688</color>
+    <color name="colorExoPlayerControllerGreyForIconsOrText">#ACB3B0</color>
+    <color name="colorIconGrey">#7F858688</color>
+    <color name="colorNotesTopicSeparator">#d8d6d7</color>
+
+    <!--    <color name="colorBiology">#f16b6c</color>-->
+    <!--    &lt;!&ndash;<color name="colorMathematics">#96c93c</color>&ndash;&gt;-->
+    <!--    <color name="colorMathematics">#fbc51a</color>-->
+    <!--    &lt;!&ndash;<color name="colorPhysics">#fbc51a</color>&ndash;&gt;-->
+    <!--    <color name="colorPhysics">#845ef7</color>-->
+    <!--    <color name="colorChemistry">#4d95d0</color>-->
+    <!--    <color name="colorGeography">#3abb94</color>-->
+    <!--    <color name="colorSubjectDefault">#845ef7</color>-->
+    <color name="colorBiology">#ff6b6b</color>
+    <color name="colorMathematics">#fcc419</color>
+    <color name="colorPhysics">#845ef7</color>
+    <color name="colorChemistry">#339af0</color>
+    <color name="colorGeography">#20c997</color>
+    <color name="colorSubjectDefault">#845ef7</color>
+
+    <color name="colorSubjectOrange">#ff922b</color>
+    <color name="colorSubjectPink">#f06595</color>
+    <color name="colorSubjectCyan">#22b8cf</color>
+    <color name="colorSubjectGreen">#51cf66</color>
+    <color name="colorSubjectViolet">#cc5de8</color>
+
+    <!--    <color name="colorRes1">#4e94cf</color>-->
+    <!--    <color name="colorRes1Alpha">#334e94cf</color>-->
+    <!--    <color name="colorRes2">#22b8cf</color>-->
+    <!--    <color name="colorRes2Alpha">#3322b8cf</color>-->
+    <!--    <color name="colorRes3">#3abb94</color>-->
+    <!--    <color name="colorRes3Alpha">#333abb94</color>-->
+    <!--    <color name="colorRes4">#7164ac</color>-->
+    <!--    <color name="colorRes4Alpha">#337164ac</color>-->
+    <!--    <color name="colorRes5">#f06595</color>-->
+    <!--    <color name="colorRes5Alpha">#33f06595</color>-->
+    <color name="colorRes1">#339af0</color>
+    <color name="colorRes1Alpha">#33339af0</color>
+    <color name="colorRes2">#22b8cf</color>
+    <color name="colorRes2Alpha">#3322b8cf</color>
+    <color name="colorRes3">#20c997</color>
+    <color name="colorRes3Alpha">#3320c997</color>
+    <color name="colorRes4">#845ef7</color>
+    <color name="colorRes4Alpha">#33845ef7</color>
+    <color name="colorRes5">#f06595</color>
+    <color name="colorRes5Alpha">#33f06595</color>
+
+    <color name="colorYellowish">#fbc51a</color>
+    <color name="colorYellowishAlpha">#33fbc51a</color>
+    <color name="colorReddish">#f16b6c</color>
+    <color name="colorReddishAlpha">#33F16B6C</color>
+    <color name="colorGreyish">#9a9b94</color>
+    <color name="colorBlackish">#040507</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="headline_text_color">#202020</color>
+    <color name="body_text_color">#333333</color>
+
+    <color name="listLightBg">#FCFCFC</color>
+    <color name="myAmber">#e67e22</color>
+
+    <color name="colorRowEven">#F1F3F6</color>
+    <color name="colorRowOdd">#ffffff</color>
+
+    <color name="colorRedCandyApple">#ff0800</color>
+
 </resources>
