@@ -1,0 +1,80 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorBg</item>
+        <item name="colorPrimaryDark">@color/colorBg</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="21">@android:color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowBackground">@color/colorBg</item>
+
+        <item name="headlineTextColor">@color/headline_text_color</item>
+        <item name="bodyTextColor">@color/body_text_color</item>
+
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ToolbarTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorBlackish</item>
+    </style>
+
+    <style name="BottomNavTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DialogFragment_FullScreen_Style" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="NavigationView_Drawer_Item_Shape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+    </style>
+
+    <style name="NavigationView_Drawer_ThemeOverlay" parent="">
+        <!--This prevents ripple effect on an item when selected-->
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
+
+    <style name="EditableViewLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/rubikmedium</item>
+        <item name="android:textColor">@color/headline_text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="cardViewTitle" parent="App.Text.Overline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/rubikmedium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/zeraki_logo_green</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <attr name="headlineTextColor" format="color" />
+    <attr name="bodyTextColor" format="color" />
+</resources>
